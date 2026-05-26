@@ -308,6 +308,49 @@ function createConfetti(){
 }
 
 setInterval(createConfetti,150);
+    <script>
+  const targetDate = new Date("2026-05-29T00:00:00").getTime();
+
+  const countdownDiv = document.createElement("div");
+  countdownDiv.style.position = "fixed";
+  countdownDiv.style.top = "0";
+  countdownDiv.style.left = "0";
+  countdownDiv.style.width = "100%";
+  countdownDiv.style.height = "100%";
+  countdownDiv.style.background = "black";
+  countdownDiv.style.color = "white";
+  countdownDiv.style.display = "flex";
+  countdownDiv.style.justifyContent = "center";
+  countdownDiv.style.alignItems = "center";
+  countdownDiv.style.fontSize = "40px";
+  countdownDiv.style.zIndex = "9999";
+
+  document.body.appendChild(countdownDiv);
+
+  const originalContent = document.body.innerHTML;
+  document.body.innerHTML = "";
+  document.body.appendChild(countdownDiv);
+
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownDiv.innerHTML =
+      days + "d " + hours + "h " +
+      minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.body.innerHTML = originalContent;
+    }
+
+  }, 1000);
+</script>
 </script>
 
 </body>
