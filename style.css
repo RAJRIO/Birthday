@@ -1,0 +1,282 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* HOME PAGE */
+
+.home{
+    background:linear-gradient(135deg,#ff4d6d,#ff758f);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.2);
+}
+
+.main-box{
+    z-index:2;
+    text-align:center;
+    background:rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+.glow{
+    font-size:60px;
+    animation:glow 2s infinite alternate;
+}
+
+.subtitle{
+    font-size:24px;
+    margin:20px;
+}
+
+input{
+    width:300px;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    margin:20px;
+    font-size:18px;
+}
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4d6d;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.countdown{
+    margin-top:30px;
+}
+
+#timer{
+    font-size:30px;
+    margin-top:10px;
+}
+
+.balloon{
+    width:80px;
+    height:100px;
+    background:red;
+    border-radius:50%;
+    position:absolute;
+    bottom:-150px;
+    animation:float 8s infinite;
+}
+
+.balloon:nth-child(1){
+    left:10%;
+    background:#ff0;
+}
+
+.balloon:nth-child(2){
+    left:30%;
+    background:#0ff;
+    animation-delay:2s;
+}
+
+.balloon:nth-child(3){
+    left:60%;
+    background:#0f0;
+    animation-delay:4s;
+}
+
+.balloon:nth-child(4){
+    left:80%;
+    background:#f0f;
+    animation-delay:6s;
+}
+
+@keyframes float{
+    from{
+        bottom:-150px;
+    }
+
+    to{
+        bottom:110%;
+    }
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px white;
+    }
+
+    to{
+        text-shadow:0 0 30px yellow;
+    }
+}
+
+/* TIMELINE */
+
+.timeline-page{
+    background:#111827;
+    color:white;
+    padding:50px;
+}
+
+.timeline-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:50px;
+}
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:6px;
+    background:#ff4d6d;
+    top:0;
+    bottom:0;
+    left:50%;
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px;
+    position:relative;
+}
+
+.left{
+    left:0;
+}
+
+.right{
+    left:50%;
+}
+
+.content{
+    background:#1f2937;
+    padding:20px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.content:hover{
+    transform:scale(1.05);
+}
+
+.gallery-title{
+    text-align:center;
+    margin-top:80px;
+}
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.gallery img{
+    width:300px;
+    height:220px;
+    border-radius:20px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+.next-btn{
+    display:block;
+    margin:50px auto;
+}
+
+/* SURPRISE */
+
+.surprise-page{
+    background:black;
+    color:white;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+
+.surprise-container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    margin-top:120px;
+}
+
+.cake{
+    width:250px;
+    margin:30px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.cake:hover{
+    transform:scale(1.1);
+}
+
+.typing{
+    width:80%;
+    margin:auto;
+    overflow:hidden;
+    border-right:4px solid white;
+    white-space:nowrap;
+    animation:typing 6s steps(60),blink .8s infinite;
+    font-size:28px;
+}
+
+@keyframes typing{
+    from{
+        width:0;
+    }
+    to{
+        width:80%;
+    }
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+
+.wish-btn{
+    margin-top:40px;
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+}

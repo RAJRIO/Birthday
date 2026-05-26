@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#ffffff;
+    overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+}
+
+nav h2{
+    font-weight:700;
+    color:#ff4d6d;
+}
+
+/* HERO */
+.hero{
+    height:85vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+}
+
+/* TEXT */
+.hero-text{
+    max-width:500px;
+}
+
+.hero-text h1{
+    font-size:48px;
+    line-height:1.2;
+}
+
+.highlight{
+    background:#ff7a00;
+    color:white;
+    padding:0 10px;
+    border-radius:8px;
+}
+
+.pink{ color:#ff4d6d; }
+.blue{ color:#3b82f6; }
+
+.hero-text p{
+    margin-top:15px;
+    color:#555;
+}
+
+/* BUTTONS */
+.btns{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:12px 20px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    font-weight:500;
+}
+
+.primary{
+    background:#111;
+    color:white;
+}
+
+.secondary{
+    background:#eee;
+}
+
+/* HERO IMAGES */
+.hero-side{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
+}
+
+.hero-img img{
+    width:420px;
+    border-radius:20px;
+}
+
+.side-context{
+    text-align:center;
+}
+
+.side-context img{
+    width:200px;
+    height:400px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+.side-context p{
+    margin-top:10px;
+    font-size:13px;
+    color:#555;
+}
+
+/* =========================
+   🎂 BIRTHDAY CARD SECTION
+========================= */
+
+.card-section{
+    padding:80px 60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#fdf2f8,#eef2ff);
+    position:relative;
+}
+
+/* floating circles */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    opacity:0.5;
+    animation:float 6s infinite ease-in-out;
+}
+
+.circle1{
+    width:120px;
+    height:120px;
+    background:#ffb3c6;
+    top:20px;
+    left:50px;
+}
+
+.circle2{
+    width:80px;
+    height:80px;
+    background:#93c5fd;
+    bottom:40px;
+    right:80px;
+}
+
+.circle3{
+    width:60px;
+    height:60px;
+    background:#fcd34d;
+    top:100px;
+    right:200px;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+}
+
+/* CARD */
+.birthday-card{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    max-width:900px;
+    width:100%;
+}
+
+/* image side */
+.card-img img{
+    width:320px;
+    border-radius:20px;
+}
+
+/* text side */
+.card-text h2{
+    font-size:32px;
+    color:#111;
+}
+
+.card-text p{
+    margin-top:10px;
+    color:#555;
+}
+
+/* CONFETTI */
+.confetti{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:orange;
+    top:-10px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+@media(max-width:900px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:30px;
+        height:auto;
+        padding:40px 20px;
+    }
+
+    .hero-img img{
+        width:280px;
+    }
+
+    .card-section{
+        padding:40px 20px;
+    }
+
+    .birthday-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .card-img img{
+        width:260px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2> 21 HAPPY BIRTHDAY WIFE💖</h2>
+   
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+    <div class="hero-text">
+        <h1>
+            She is not just my <span class="highlight">girl</span><br>
+            she is <span class="pink">my whole</span> <span class="blue">beautiful universe</span> 💖
+        </h1>
+
+        <p>A small gift, a big smile, and endless memories ✨</p>
+
+        <div class="btns">
+            <button class="btn primary" onclick="goNext()">🎉 Start Surprise</button>
+            
+        </div>
+    </div>
+
+    <div class="hero-side">
+
+
+        <div class="side-context">
+            <img src="./IMAGES/IMG_9079.jpeg">
+            <p>✨ The reason behind every smile</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+function goNext(){
+    window.location.href = "timeline.html";
+}
+
+/* Confetti */
+function createConfetti(){
+    const c = document.createElement("div");
+    c.classList.add("confetti");
+
+    c.style.left = Math.random()*100 + "vw";
+    c.style.background = ["#ff4d6d","#ffcc00","#3b82f6","#22c55e"][Math.floor(Math.random()*4)];
+    c.style.animationDuration = (Math.random()*3 + 2) + "s";
+
+    document.body.appendChild(c);
+
+    setTimeout(()=>c.remove(),5000);
+}
+
+setInterval(createConfetti,150);
+</script>
+
+</body>
+</html>

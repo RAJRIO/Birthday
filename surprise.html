@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+<title>Special Surprise 💖</title>
+
+<style>
+    /* center container */
+.final-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+/* image */
+.final-content img{
+    width:340px;
+    max-width:90%;
+    border-radius:25px;
+}
+
+/* stylish text */
+.final-text{
+    font-family: 'Dancing Script', cursive;
+    font-size:28px;
+    color:#fff;
+    text-align:center;
+    text-shadow:0 0 10px rgba(255,255,255,0.6);
+}
+
+body,html{
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;
+    font-family:'Arial';
+}
+
+/* WHITE BACKGROUND */
+
+body{
+    background:#ffffff;
+}
+
+/* SOFT GLOWS */
+
+.glow1,.glow2,.glow3{
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.25;
+}
+
+.glow1{
+    background:#ff4d6d;
+    top:10%;
+    left:10%;
+}
+
+.glow2{
+    background:#3b82f6;
+    bottom:10%;
+    right:10%;
+}
+
+.glow3{
+    background:#22c55e;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+/* CENTER CARD */
+
+.card{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+
+    width:85%;
+    max-width:520px;
+
+    padding:35px;
+
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    border:1px solid rgba(0,0,0,0.08);
+
+    color:#111;
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+
+h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+/* MESSAGE */
+
+#msg{
+    margin-top:15px;
+    font-size:18px;
+    min-height:50px;
+    line-height:1.5;
+    transition:0.5s;
+}
+
+/* BALLOONS */
+
+.balloon{
+    width:60px;
+    height:80px;
+
+    position:absolute;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    animation:float 3s infinite ease-in-out;
+
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* BALLOON POSITIONS */
+
+.b1{
+    background:#ff4d6d;
+    top:15%;
+    left:10%;
+}
+
+.b2{
+    background:#3b82f6;
+    top:25%;
+    right:15%;
+}
+
+.b3{
+    background:#22c55e;
+    bottom:20%;
+    left:20%;
+}
+
+.b4{
+    background:#ff9900;
+    bottom:15%;
+    right:18%;
+}
+
+/* STRING */
+
+.balloon::after{
+    content:"";
+    position:absolute;
+
+    width:2px;
+    height:45px;
+
+    background:#888;
+
+    top:80px;
+    left:50%;
+}
+
+/* FLOAT */
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* MESSAGE ANIMATION */
+
+.popMsg{
+    animation:showMsg 0.6s ease;
+}
+
+@keyframes showMsg{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* FINAL IMAGE POPUP */
+
+.final-image{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.85);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.5s;
+
+    z-index:999;
+}
+
+.final-image img{
+    width:340px;
+    max-width:90%;
+
+    border-radius:25px;
+
+    box-shadow:0 20px 40px rgba(255,255,255,0.2);
+
+    transform:scale(0.7);
+
+    transition:0.5s;
+}
+
+/* SHOW POPUP */
+
+.final-image.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.final-image.show img{
+    transform:scale(1);
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    h1{
+        font-size:26px;
+    }
+
+    #msg{
+        font-size:16px;
+    }
+
+    .balloon{
+        width:50px;
+        height:70px;
+    }
+
+    .final-image img{
+        width:280px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- GLOW EFFECTS -->
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+<div class="glow3"></div>
+
+<!-- CARD -->
+
+<div class="card">
+
+    <h1>🎉 Special Surprise 🎉</h1>
+
+    <div id="msg">
+        Click balloons one by one 💖
+    </div>
+
+</div>
+
+<!-- BALLOONS -->
+
+<div class="balloon b1" onclick="showMsg()"></div>
+
+<div class="balloon b2" onclick="showMsg()"></div>
+
+<div class="balloon b3" onclick="showMsg()"></div>
+
+<div class="balloon b4" onclick="showMsg()"></div>
+
+<!-- FINAL IMAGE -->
+
+<div id="finalImage" class="final-image">
+
+    <img src="./IMAGES/IMG_9651.jpeg">
+     <p class="final-text">
+            💖 This surprise is created with love, only for you💕
+            Wish You Happy Birthday My Love💖
+
+            Happy 21st Birthday 💖
+
+May Jesus bless you with endless happiness, good health, success, peace, and a beautiful future ✨  
+I pray that all your dreams come true and your life is filled with love and joy always 💕  
+
+May your career shine brighter, your family stay happy and blessed, and true friends always stay beside you 🤍  
+
+Keep smiling forever because you deserve every beautiful thing in this world 💫-RR
+        </p>
+
+</div>
+
+<script>
+
+let step = 0;
+
+function showMsg(){
+
+    step++;
+
+    let msg = document.getElementById("msg");
+
+    msg.classList.remove("popMsg");
+
+    void msg.offsetWidth;
+
+    msg.classList.add("popMsg");
+
+    if(step == 1){
+
+        msg.innerHTML =
+        "💖 You are the most important person in my life";
+
+    }
+
+    else if(step == 2){
+
+        msg.innerHTML =
+        "💫 The most precious gem I got in my life is you. I'm damn lucky to have you in my life. Love you most. Happy Birthday Wife 💖";
+        
+
+    }
+
+    else if(step == 3){
+
+        msg.innerHTML =
+        "💍 I will always stay with you ❤️";
+
+    }
+
+    else{
+
+        msg.innerHTML =
+        "✨ You bring happiness into my world";
+
+        document.getElementById("finalImage")
+        .classList.add("show");
+    }
+}
+
+</script>
+
+</body>
+</html>
