@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Birthday Surprise 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -20,7 +22,93 @@ body{
     overflow-x:hidden;
 }
 
-/* NAV */
+/* =========================
+   COUNTDOWN SCREEN
+========================= */
+
+#countdownScreen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:99999;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:0.5;
+    animation:moveGlow 8s infinite alternate;
+}
+
+.glow1{
+    width:300px;
+    height:300px;
+    background:#ff4d6d;
+    top:-50px;
+    left:-50px;
+}
+
+.glow2{
+    width:300px;
+    height:300px;
+    background:#3b82f6;
+    bottom:-50px;
+    right:-50px;
+}
+
+@keyframes moveGlow{
+    from{
+        transform:translateY(0px);
+    }
+    to{
+        transform:translateY(40px);
+    }
+}
+
+.count-title{
+    color:white;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:20px;
+    text-align:center;
+    z-index:2;
+}
+
+#countdown{
+    color:#ffcc70;
+    font-size:70px;
+    font-weight:bold;
+    z-index:2;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+.wait-text{
+    margin-top:20px;
+    color:#ddd;
+    font-size:18px;
+    letter-spacing:2px;
+    z-index:2;
+}
+
+/* =========================
+   NAV
+========================= */
+
 nav{
     display:flex;
     justify-content:space-between;
@@ -33,7 +121,10 @@ nav h2{
     color:#ff4d6d;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
+
 .hero{
     height:85vh;
     display:flex;
@@ -42,7 +133,6 @@ nav h2{
     padding:0 60px;
 }
 
-/* TEXT */
 .hero-text{
     max-width:500px;
 }
@@ -67,7 +157,6 @@ nav h2{
     color:#555;
 }
 
-/* BUTTONS */
 .btns{
     margin-top:25px;
     display:flex;
@@ -87,11 +176,6 @@ nav h2{
     color:white;
 }
 
-.secondary{
-    background:#eee;
-}
-
-/* HERO IMAGES */
 .hero-side{
     display:flex;
     flex-direction:column;
@@ -99,18 +183,13 @@ nav h2{
     align-items:center;
 }
 
-.hero-img img{
-    width:420px;
-    border-radius:20px;
-}
-
 .side-context{
     text-align:center;
 }
 
 .side-context img{
-    width:200px;
-    height:400px;
+    width:250px;
+    height:420px;
     object-fit:cover;
     border-radius:20px;
     box-shadow:0 10px 20px rgba(0,0,0,0.1);
@@ -123,93 +202,16 @@ nav h2{
 }
 
 /* =========================
-   🎂 BIRTHDAY CARD SECTION
+   CONFETTI
 ========================= */
 
-.card-section{
-    padding:80px 60px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#fdf2f8,#eef2ff);
-    position:relative;
-}
-
-/* floating circles */
-.circle{
-    position:absolute;
-    border-radius:50%;
-    opacity:0.5;
-    animation:float 6s infinite ease-in-out;
-}
-
-.circle1{
-    width:120px;
-    height:120px;
-    background:#ffb3c6;
-    top:20px;
-    left:50px;
-}
-
-.circle2{
-    width:80px;
-    height:80px;
-    background:#93c5fd;
-    bottom:40px;
-    right:80px;
-}
-
-.circle3{
-    width:60px;
-    height:60px;
-    background:#fcd34d;
-    top:100px;
-    right:200px;
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-20px);}
-}
-
-/* CARD */
-.birthday-card{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    background:white;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.1);
-    max-width:900px;
-    width:100%;
-}
-
-/* image side */
-.card-img img{
-    width:320px;
-    border-radius:20px;
-}
-
-/* text side */
-.card-text h2{
-    font-size:32px;
-    color:#111;
-}
-
-.card-text p{
-    margin-top:10px;
-    color:#555;
-}
-
-/* CONFETTI */
 .confetti{
     position:absolute;
     width:8px;
     height:8px;
     background:orange;
     top:-10px;
-    animation: fall linear infinite;
+    animation:fall linear infinite;
 }
 
 @keyframes fall{
@@ -219,8 +221,12 @@ nav h2{
     }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:900px){
+
     .hero{
         flex-direction:column;
         text-align:center;
@@ -229,126 +235,196 @@ nav h2{
         padding:40px 20px;
     }
 
-    .hero-img img{
-        width:280px;
+    .hero-text h1{
+        font-size:34px;
     }
 
-    .card-section{
-        padding:40px 20px;
+    .side-context img{
+        width:220px;
+        height:340px;
     }
 
-    .birthday-card{
-        flex-direction:column;
-        text-align:center;
+    .count-title{
+        font-size:28px;
     }
 
-    .card-img img{
-        width:260px;
+    #countdown{
+        font-size:42px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- COUNTDOWN SCREEN -->
+
+<div id="countdownScreen">
+
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+
+    <div class="count-title">
+        🎂 Waiting For Your Birthday 💖
+    </div>
+
+    <div id="countdown">
+        00d 00h 00m 00s
+    </div>
+
+    <div class="wait-text">
+        A special surprise is loading...
+    </div>
+
+</div>
+
+<!-- MAIN PAGE -->
+
 <nav>
-    <h2> 21 HAPPY BIRTHDAY MY LOVE💖</h2>
-   
+    <h2>21 HAPPY BIRTHDAY WIFE 💖</h2>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
 
     <div class="hero-text">
+
         <h1>
-            She is not just my <span class="highlight">girl</span><br>
-            she is <span class="pink">my whole</span> <span class="blue">beautiful universe</span> 💖
+            She is not just my
+            <span class="highlight">girl</span><br>
+
+            she is
+            <span class="pink">my whole</span>
+
+            <span class="blue">
+                beautiful universe
+            </span> 💖
         </h1>
 
-        <p>A small gift, a big smile, and endless memories ✨</p>
+        <p>
+            A small gift, a big smile,
+            and endless memories ✨
+        </p>
 
-       
+        <div class="btns">
+            <button class="btn primary"
+            onclick="goNext()">
+                🎉 Start Surprise
+            </button>
+        </div>
+
     </div>
 
     <div class="hero-side">
 
-
         <div class="side-context">
             <img src="./IMAGES/IMG_9079.jpeg">
-            <p>✨ The reason behind every smile</p>
+
+            <p>
+                ✨ The reason behind every smile
+            </p>
         </div>
 
     </div>
-     <div class="btns">
-            <button class="btn primary" onclick="goNext()">🎉 Start Surprise</button>
-            
-        </div>
 
 </div>
 
-
-
 <script>
+
+/* NEXT PAGE */
+
 function goNext(){
     window.location.href = "timeline.html";
 }
 
-/* Confetti */
+/* CONFETTI */
+
 function createConfetti(){
+
     const c = document.createElement("div");
+
     c.classList.add("confetti");
 
     c.style.left = Math.random()*100 + "vw";
-    c.style.background = ["#ff4d6d","#ffcc00","#3b82f6","#22c55e"][Math.floor(Math.random()*4)];
-    c.style.animationDuration = (Math.random()*3 + 2) + "s";
+
+    c.style.background =
+    ["#ff4d6d","#ffcc00","#3b82f6","#22c55e"]
+    [Math.floor(Math.random()*4)];
+
+    c.style.animationDuration =
+    (Math.random()*3 + 2) + "s";
 
     document.body.appendChild(c);
 
     setTimeout(()=>c.remove(),5000);
 }
 
-setInterval(createConfetti,150);
-  const targetDate = new Date("2026-05-29T00:00:00").getTime();
+/* COUNTDOWN */
 
-  const countdownDiv = document.createElement("div");
-  countdownDiv.style.position = "fixed";
-  countdownDiv.style.top = "0";
-  countdownDiv.style.left = "0";
-  countdownDiv.style.width = "100%";
-  countdownDiv.style.height = "100%";
-  countdownDiv.style.background = "black";
-  countdownDiv.style.color = "white";
-  countdownDiv.style.display = "flex";
-  countdownDiv.style.justifyContent = "center";
-  countdownDiv.style.alignItems = "center";
-  countdownDiv.style.fontSize = "40px";
-  countdownDiv.style.zIndex = "9999";
+const targetDate =
+new Date("2026-05-29T00:00:00").getTime();
 
-  document.body.appendChild(countdownDiv);
+const countdownScreen =
+document.getElementById("countdownScreen");
 
-  const originalContent = document.body.innerHTML;
-  document.body.innerHTML = "";
-  document.body.appendChild(countdownDiv);
+const countdown =
+document.getElementById("countdown");
 
-  const timer = setInterval(() => {
+const mainElements =
+document.querySelectorAll("nav, .hero");
+
+/* hide main page initially */
+
+mainElements.forEach(el=>{
+    el.style.display = "none";
+});
+
+const timer = setInterval(()=>{
+
     const now = new Date().getTime();
+
     const distance = targetDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const days = Math.floor(
+        distance / (1000*60*60*24)
+    );
 
-    countdownDiv.innerHTML =
-      days + "d " + hours + "h " +
-      minutes + "m " + seconds + "s ";
+    const hours = Math.floor(
+        (distance % (1000*60*60*24))
+        / (1000*60*60)
+    );
 
-    if (distance < 0) {
-      clearInterval(timer);
-      document.body.innerHTML = originalContent;
+    const minutes = Math.floor(
+        (distance % (1000*60*60))
+        / (1000*60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000*60))
+        / 1000
+    );
+
+    countdown.innerHTML =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    /* birthday reached */
+
+    if(distance < 0){
+
+        clearInterval(timer);
+
+        countdownScreen.style.display = "none";
+
+        mainElements.forEach(el=>{
+            el.style.display = "";
+        });
+
+        setInterval(createConfetti,150);
     }
 
-  }, 1000);
+},1000);
+
 </script>
 
 </body>
